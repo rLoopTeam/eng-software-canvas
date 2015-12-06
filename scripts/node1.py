@@ -18,10 +18,9 @@ def main():
 
 	while 1:
 		canvas.print_out( "This is node 1" )
-		sender.send("%s %s" % (message_id, message_data), zmq.NOBLOCK )
+		canvas.send(sender, message_id, message_data)
 	    	
-		can_message = receiver.recv()
-		msg_id, data = can_message.split(' ', 1)
+		msg_id, data = canvas.recv(receiver)
 
 		canvas.print_out("Node 1 recieved: %s" % data)
 		time.sleep(5)

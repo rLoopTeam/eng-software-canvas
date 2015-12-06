@@ -1,6 +1,5 @@
 
 import time
-import zmq
 import canvas
 
 id_filter = ['100']

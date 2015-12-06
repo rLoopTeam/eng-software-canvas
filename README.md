@@ -14,3 +14,32 @@ CANVAS consists of two main components: the Supervisor process management framew
 
 Supervisor is used to manage the start and manage the node processes, and also takes care of logging their output. The supervisord.conf file points Supervisor to the .py files you want to run as nodes, tells it how to start/manage them, and how the output should be logged. The docs for supervisor are well-maintained and can be found at: www.supervisord.org
 
+
+-Installing the Supervisor and ZMQ environment:
+
+1. install easy_install:
+wget https://bootstrap.pypa.io/ez_setup.py -O - | sudo python
+
+2. install supervisor:
+sudo easy_install supervisor
+
+3. install python dev libraries (you might have this already, needed to build ZMQ):
+sudo apt-get install python-dev
+
+4. install linux build tools (most likely you have this already):
+sudo apt-get install build-essential
+
+5. install pyzmq, python's ZMQ module:
+sudo easy_install pyzmq
+
+This step might throw a bunch of warnings, errors and something that looks like a self-destruct sequence at you. Do not be alarmed, this is normal.
+If all is well you should see something like this when it's done:
+
+Adding pyzmq 15.1.0 to easy-install.pth file
+Installed /usr/local/lib/python2.7/dist-packages/pyzmq-15.1.0-py2.7-linux-x86_64.egg
+Processing dependencies for pyzmq
+Finished processing dependencies for pyzmq
+
+-Installing CANVAS into Supervisor:
+
+Make a directory called "canvas" somewhere on your system, then pull this repo into it. Open a terminal in your canvas folder and run "supervisord -n". If all is well you should see the canvas server and 2 nodes come online and start talking to eachother. 

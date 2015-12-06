@@ -1,1 +1,2 @@
 /node_logs/*.log
+/supervisor_logs/*.log

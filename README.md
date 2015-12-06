@@ -41,7 +41,7 @@ Finished processing dependencies for pyzmq
 
 ## Installing and running CANVAS in Supervisor:
 
-Make a directory called "canvas" somewhere on your system, then pull this repo into it. I like to keep my supervisor folders in my home dir, for example /home/joakim/canvas, but anywhere is fine. Open a terminal in your canvas folder (or cd to it) and run "supervisord -n". If all is well you should see the canvas server and 2 nodes come online and start talking to eachother.
+Make a directory called "canvas" somewhere on your system, then pull this repo into it. I like to keep my supervisor folders in my home dir, for example /home/joakim/canvas, but anywhere is fine. In your canvas folder, create two new directories called "node_logs" and "supervisor_logs". Now open a terminal in your canvas folder (or cd to it) and run "supervisord -n". If all is well you should see the canvas server and 2 nodes come online and start talking to eachother.
 
 Supervisor always looks for the supervisord.conf file in the directory where you run the "supervisord -n" command. So it's important to run the command in the correct directory. 
 

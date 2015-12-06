@@ -9,7 +9,7 @@ CANVAS (CAN Virtual Approximation Simulator) is meant to simulate the behaviour 
 Hardware nodes can only be written in Python for now, but support for other languages can be added if needed.
 
 
-CANVAS consists of two main components: the Supervisor process management framework, and python bindings for a CAN-like interprocess communication library developed by @vookungdoofu. Each node must include this library to be able to talk with the rest of the system over the simulated CAN bus. See "node1.py" and "node2.py" in /nodes for code examples (with handy comments in node2). The comm library uses the excellent ZeroMQ messaging lib as its low-level communication mechanism (used by both CERN and NASA backends). The canvas comm library is found in "canvas.py" in /nodes and must be included in all nodes that wants to talk on the bus. 
+CANVAS consists of two main components: the Supervisor process management framework, and python bindings for a CAN-like interprocess communication library developed by @vookungdoofu. Each node must include this library to be able to talk with the rest of the system over the simulated CAN bus. The comm library uses the excellent ZeroMQ messaging lib as its low-level communication mechanism (used by both CERN and NASA backends). The canvas comm library is found in "canvas.py" in /nodes and must be included in all nodes that wants to talk on the bus. 
 
 Supervisor is used to start and manage the node processes, and also takes care of logging their output. When you start the system, Supervisor first looks for a file called 'supervisord.conf'. This is where you tell Supervisor what .py files you want to run as nodes, tells it how to start/manage them, and how the output should be logged. An example config file for starting node1, node2 and the canvas server in included in the repo. For more details on config file options check out: www.supervisord.org/configuration.html
 
@@ -51,4 +51,8 @@ Supervisor will log output on stdout and stderr from the nodes. They way it does
 
 By default Supervisor captures the output on stdout and stderr from its managed processes and outputs it in the terminal. With many nodes running this can get messy, so you can turn the output from the nodes off in supervisord.conf by changing the "loglevel" parameter in the "supervisord" section. DEBUG shows output from all processes, INFO shows only supervisor info like nodes starting/stopping etc. If INFO is set the output from a node is still logged in it's logfiles.
 
-But wait, there more! Supervisor also comes with a handy web-based gui to contorl your system. Open a web browser and go to 127.0.0.1:9001. From here you can bring nodes up/down and see the output from a single node with it's 'tail -f' option.
+But wait, there's more! Supervisor also comes with a handy web-based gui to contorl your system. Open a web browser and go to 127.0.0.1:9001. From here you can bring nodes up/down and see the output from a single node with it's 'tail -f' option.
+
+## Code examples
+
+To get started, check out "node1.py" and "node2.py" in /nodes. Node2 comes with handy comments on how to use the messaging library. "canvas.py" contains the actual library code if you want to check out the ZMQ magic!

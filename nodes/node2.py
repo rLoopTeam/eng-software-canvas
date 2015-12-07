@@ -10,7 +10,7 @@ def main():
 	#init canvas sender and receiver
 	receiver = canvas.init_receiver()
 	sender = canvas.init_sender()
-	time.sleep(0.5) #sleep to allow for ZMQ connection time
+	time.sleep(0.5) #sleep to allow for ZMQ connection time. horrible hack that will go away soon
 
 	#add message id filters on receiver
 	canvas.add_id(receiver, receive_message_ids)

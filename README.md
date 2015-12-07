@@ -35,8 +35,11 @@ The last step might throw a bunch of warnings, errors and something that looks l
 If all is well you should see something like this when it's done:
 
 Adding pyzmq 15.1.0 to easy-install.pth file
+
 Installed /usr/local/lib/python2.7/dist-packages/pyzmq-15.1.0-py2.7-linux-x86_64.egg
+
 Processing dependencies for pyzmq
+
 Finished processing dependencies for pyzmq
 
 ## Installing and running CANVAS in Supervisor:

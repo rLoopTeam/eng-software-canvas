@@ -10,7 +10,7 @@ def main():
 	#init canvas sender and receiver
 	receiver = canvas.init_receiver()
 	sender = canvas.init_sender()
-	time.sleep(0.5) #sleep to allow for ZMQ connection time. horrible hack that will go away soon
+	time.sleep(0.5) #sleep to allow for canvas server startup. horrible hack that will go away soon
 
 	#add message id filters on receiver
 	canvas.add_id(receiver, receive_message_ids)
@@ -26,7 +26,9 @@ def main():
 	message = canvas.msg("100", "Hi it's node 2 again")
 
 	while 1:
-		#print something to stdout
+		#print to stdout. python's standard print can interfere with supervisord's
+		#output and logging functionality in strange ways. 
+		#please use this instead.
 		canvas.print_out( "This is node 2" )
 
 		#send message on the CAN bus

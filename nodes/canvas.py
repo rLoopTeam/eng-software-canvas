@@ -7,7 +7,7 @@ class msg:
         self.id = a
         self.data = b
 
-#stdout print function that works better with supervisord
+#stdout print function that works well with supervisord
 def print_out ( str ):
 	sys.stdout.write( str )
 	sys.stdout.write( "\n" )

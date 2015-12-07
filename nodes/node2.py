@@ -35,7 +35,7 @@ def main():
 
 		#you can change a canvas message like this
 		message.id = "101"
-		message.payload="Node 1 should not see this now"
+		message.data="Node 1 should not see this now"
 
 		#receive message from CAN bus (only returns messages that this node has subscribed to)
 		#this call will block untill a message is received

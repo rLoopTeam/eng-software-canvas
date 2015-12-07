@@ -5,7 +5,7 @@ import sys
 class msg:
     def __init__(self, a, b):
         self.id = a
-        self.payload = b
+        self.data = b
 
 #stdout print function that works better with supervisord
 def print_out ( str ):
@@ -27,13 +27,13 @@ def init_receiver():
 	receiver.connect("tcp://127.0.0.1:9999")
 	return receiver
 
-#send two strings as id, payload on the CAN bus
+#send two strings as id, data on the CAN bus
 def send(socket, msg_id, msg_data):
 	socket.send("%s %s" % (msg_id, msg_data))
 
 #send a cavas message on the CAN bus
 def send_msg(socket, msg):
-	socket.send("%s %s" % (msg.id, msg.payload))
+	socket.send("%s %s" % (msg.id, msg.data))
 
 #blocking receive on the CAN bus
 def recv(socket):
